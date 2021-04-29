@@ -27,3 +27,11 @@ Inicialmente se clasificaron a las variables en influyentes o no, ademas de anot
 - El 85% le gusta Jesus
 - Probablemente rol_familiar y estado_marital esten relacionadas
 
+
+
+## PREGUNTAS
+
+
+categoria: sin-trabajo, pero trabajaron 40 hs ?!!!
+eliminar a los 27???
+estimar la categoria de trabajo???
