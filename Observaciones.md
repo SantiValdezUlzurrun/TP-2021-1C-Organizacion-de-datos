@@ -35,3 +35,6 @@ Inicialmente se clasificaron a las variables en influyentes o no, ademas de anot
 categoria: sin-trabajo, pero trabajaron 40 hs ?!!! ---> Check
 eliminar a los 27??? ---------------------------------> Check
 estimar la categoria de trabajo???
+Gente con mas de 65 trabajando??
+Combinar Matrimonios ??
+Separacion por comunas ??
