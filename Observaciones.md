@@ -12,6 +12,8 @@ Inicialmente se clasificaron a las variables en influyentes o no, ademas de anot
 - estado marital
 - horas_de_trabajo_registradas
 - trabajo
+- ganancia
+- horas de trabajo
 
 ### No deberia influir
 
@@ -29,19 +31,23 @@ Inicialmente se clasificaron a las variables en influyentes o no, ademas de anot
 
 ### Ranking Variables
 
-1) Trabajo
-1) Estado marital
+ 
+1) .::Estado marital::.
+1) .::Rol familiar::.
+2) horas de trabajo
+3) anios_estudidados 
+3) Edad 
 
-4) Edad
-5) Genero
+4) Trabajo (+)
+4) Categoria de trabajo (+)
+5) Ganancia (+)
+
+?) Genero
 
 11) Religion
-12) Barrio
+11) Barrio
 
 ## PREGUNTAS
 
-
-estimar la categoria de trabajo???
 Gente con mas de 65 trabajando??
 Combinar Matrimonios ??
-Separacion por comunas ??
