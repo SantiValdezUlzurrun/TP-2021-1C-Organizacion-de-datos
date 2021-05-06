@@ -27,13 +27,20 @@ Inicialmente se clasificaron a las variables en influyentes o no, ademas de anot
 - El 85% le gusta Jesus
 - Probablemente rol_familiar y estado_marital esten relacionadas
 
+### Ranking Variables
 
+1) Trabajo
+1) Estado marital
+
+4) Edad
+5) Genero
+
+11) Religion
+12) Barrio
 
 ## PREGUNTAS
 
 
-categoria: sin-trabajo, pero trabajaron 40 hs ?!!! ---> Check
-eliminar a los 27??? ---------------------------------> Check
 estimar la categoria de trabajo???
 Gente con mas de 65 trabajando??
 Combinar Matrimonios ??
