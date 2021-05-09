@@ -32,17 +32,17 @@ Inicialmente se clasificaron a las variables en influyentes o no, ademas de anot
 ### Ranking Variables
 
  
-1) .::Estado marital::.
-1) .::Rol familiar::.
-2) horas de trabajo
-3) anios_estudidados 
-3) Edad 
+1) .::Estado marital::. -
+1 - 12|EM) .::Rol familiar::.-
+2 - 12|EM - 12 |EM y T') horas de trabajo
+3 - 2|EM - 1 |EM y T') anios_estudidados 
+3 - 11|EM) Edad 
+4 - 1 | EM) Trabajo-
 
-4) Trabajo (+)
-4) Categoria de trabajo (+)
-5) Ganancia (+)
+4 - 11|EM) Categoria de trabajo 
+5 - 2|EM) Ganancia
 
-?) Genero
+4 - 12|EM) Genero
 
 11) Religion
 11) Barrio
