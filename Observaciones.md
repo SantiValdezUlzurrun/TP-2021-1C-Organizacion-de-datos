@@ -13,7 +13,7 @@ Inicialmente se clasificaron a las variables en influyentes o no, ademas de anot
 - horas_de_trabajo_registradas
 - trabajo
 - ganancia
-- horas de trabajo
+
 
 ### No deberia influir
 
