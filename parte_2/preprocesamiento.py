@@ -1,3 +1,26 @@
+## UTILS
+import pandas as pd
+import numpy as np
+
+GSPREADHSEET_DOWNLOAD_URL = ("https://docs.google.com/spreadsheets/d/{gid}/export?format=csv&id={gid}".format)
+
+DF_TRAIN_GID = '1-DWTP8uwVS-dZY402-dm0F9ICw_6PNqDGLmH0u8Eqa0'
+DF_HOLDOUT_GID = "1ObsojtXfzvwicsFieGINPx500oGbUoaVTERTc69pzxE"
+
+def obtenerDF(GID):
+    return pd.read_csv(GSPREADHSEET_DOWNLOAD_URL(gid=GID), skiprows=0)
+
+def obtenerDFTraining():
+    return obtenerDF(DF_TRAIN_GID)
+
+def obtenerDFHoldout():
+    return obtenerDF(DF_HOLDOUT_GID)
+
+
+
+
+## PREPROCESAMIENTO
+
 def tiene_n_missings(x, n):
     acum = 0
     for i in range(len(x)):
@@ -20,3 +43,10 @@ def feature_engineering(df):
     df['estado_marital'] = df['estado_marital'].apply(lambda x: 'matrimonio' if x == 'matrimonio_civil' or x == 'matrimonio_militar' else x)
     df = df.drop(['educacion_alcanzada'],axis=1)
     return df
+
+def preprocesar_data_frame(df : pd.DataFrame):
+    df = feature_engineering(df)
+    y = df['tiene_alto_valor_adquisitivo']
+    X = df.drop(columns=['tiene_alto_valor_adquisitivo'])
+    return (X, y)
+    
