@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 
+
 GSPREADHSEET_DOWNLOAD_URL = ("https://docs.google.com/spreadsheets/d/{gid}/export?format=csv&id={gid}".format)
 
 DF_TRAIN_GID = '1-DWTP8uwVS-dZY402-dm0F9ICw_6PNqDGLmH0u8Eqa0'
@@ -49,4 +50,7 @@ def preprocesar_data_frame(df : pd.DataFrame):
     y = df['tiene_alto_valor_adquisitivo']
     X = df.drop(columns=['tiene_alto_valor_adquisitivo'])
     return (X, y)
+
+    
+
     
