@@ -1,8 +1,26 @@
 ## UTILS
 import pandas as pd
 import numpy as np
+import graphviz
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import roc_auc_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import Normalizer
+from sklearn.model_selection import train_test_split
+
+RANDOM_STATE = 19 * 103785
+
+## Auxiliares
 GSPREADHSEET_DOWNLOAD_URL = ("https://docs.google.com/spreadsheets/d/{gid}/export?format=csv&id={gid}".format)
 
 DF_TRAIN_GID = '1-DWTP8uwVS-dZY402-dm0F9ICw_6PNqDGLmH0u8Eqa0'
@@ -17,8 +35,31 @@ def obtenerDFTraining():
 def obtenerDFHoldout():
     return obtenerDF(DF_HOLDOUT_GID)
 
+# Imprime las metricas Recall, Precision, Accuracy, Roc-auc y muestra la matriz de confuncion.
+def metricas(y_real, y_pred, x_test, modelo):
 
+    data = {'y_real': y_real,
+            'y_pred': y_pred}
 
+    df_metricas = pd.DataFrame(data, columns=['y_real','y_pred'])
+    confusion_matrix = pd.crosstab(df_metricas['y_real'], df_metricas['y_pred'], rownames=['Real'], colnames=['Predicho'])
+    sns.heatmap(confusion_matrix, annot=True, fmt="d")
+    plt.show()
+
+    print("Recall: {}".format(recall_score(y_real, y_pred).round(2)))
+    print("Precision: {}".format(precision_score(y_real, y_pred).round(2)))
+    print("Acc: {}".format(accuracy_score(y_real, y_pred).round(2)))
+    print("Roc: {}".format(roc_auc_score(y_real, modelo.predict_proba(x_test)[:, 1]).round(2)))
+    return
+
+def escribir_predicciones_a_archivo(predicciones:np.array, nombre_modelo, ids):
+    archivo = open("PrediccionesHoldout/"+nombre_modelo+".csv", "w")
+    archivo.write("id,tiene_alto_valor_adquisitivo\n")
+    i = 0
+    for prediccion in predicciones:
+        archivo.write(str(ids[i])+ "," + str(prediccion) + "\n")
+        i = i + 1
+    archivo.close()
 
 ## PREPROCESAMIENTO
 
@@ -51,6 +92,33 @@ def preprocesar_data_frame(df : pd.DataFrame):
     X = df.drop(columns=['tiene_alto_valor_adquisitivo'])
     return (X, y)
 
+def prepros_dummies(data):
     
+    data_prepos = pd.get_dummies(data, drop_first=True)
+    return data_prepos
 
-    
+def preprocesar_variables_numericas(df):
+    df['ganancia_perdida_declarada_bolsa_argentina'] = df['ganancia_perdida_declarada_bolsa_argentina'].apply(lambda x: np.tanh(x))
+    return df
+
+def preprocesar_df_min_max_scaler(X : pd.DataFrame):
+    X = pd.get_dummies(X, drop_first=True)
+    scaler = MinMaxScaler()
+    scaler.fit(X)
+    return scaler.transform(X)
+
+def preprocesar_df_pca(X, dim):
+    pca = PCA(dim)
+    X_trans = pd.DataFrame(pca.fit_transform(X))
+    return X_trans 
+
+def preprocesar_standar_scaler(X : pd.DataFrame):
+    scaler = StandardScaler()
+    scaler.fit(X)
+    return scaler.transform(X)
+
+def preprocesar_normalize_scaler(X : pd.DataFrame):
+    X = pd.get_dummies(X,drop_first= True) 
+    scaler = Normalizer()
+    scaler.fit(X)
+    return scaler.transform(X)
