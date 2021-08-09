@@ -13,4 +13,4 @@
 
 - Si bien agregaron una descripción sobre los gráficos, esta sigue siendo muy general. La idea es que describan para cada gráfico qué está sucediendo en el mismo y cómo eso los motiva a probar algo distinto a continuación. Agreguen estas descripciones.-->CHECK
 
-- No prueban diferentes hiperparámetros para este modelo. Sé que esta corrección se me escapó la primera vez, así que les pido mil disculpas pero es necesario que exploren diferentes valores de hiperparámetros antes de tomar la decisión sobre cuáles usar. Especialmente el número de estimadores. Agreguen esta exploración.-->CASI CHECK
+- No prueban diferentes hiperparámetros para este modelo. Sé que esta corrección se me escapó la primera vez, así que les pido mil disculpas pero es necesario que exploren diferentes valores de hiperparámetros antes de tomar la decisión sobre cuáles usar. Especialmente el número de estimadores. Agreguen esta exploración.-->CHECK
